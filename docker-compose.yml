@@ -22,15 +22,15 @@ services:
   frontend:
     image: user8008/kittygram_frontend
     env_file: .env
-    command: cp -r /app/build/. /static/
+    command: cp -r /app/build/. /frontend_static/
     volumes:
       - static:/frontend_static
 
   gateway:
     image: user8008/kittygram_gateway
-    env_file: .env
+    env_file: .env    
+    volumes:
+      - static:/static/
+      - media:/media
     ports:
       - 9000:80
-    volumes:
-      - static:/static
-      - media:/media
