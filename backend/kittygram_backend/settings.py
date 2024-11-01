@@ -8,7 +8,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['89.169.171.97', 'yaprac-infrasprint.zapto.org']
+ALLOWED_HOSTS = [os.getenv('ALLOWED_IP', 'localhost'), os.getenv('ALLOWED_DOMAIN', '')]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -60,7 +60,7 @@ DATABASES = {
         'NAME': os.getenv('POSTGRES_DB', 'django'),
         'USER': os.getenv('POSTGRES_USER', 'django'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
-        'HOST': os.getenv('DB_HOST', ''),
+        'HOST': os.getenv('DB_HOST', 'db'),
         'PORT': os.getenv('DB_PORT', 5432)
     }
 }
